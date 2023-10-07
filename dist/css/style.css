@@ -140,6 +140,7 @@ a {
 abbr[title] {
   border-bottom: none; /* 1 */
   text-decoration: underline; /* 2 */
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted; /* 2 */
 }
 
@@ -420,13 +421,11 @@ li {
 
     -webkit-user-select: none;
        -moz-user-select: none;
-        -ms-user-select: none;
             user-select: none;
 
     -webkit-touch-callout: none;
     -khtml-user-select: none;
-    -ms-touch-action: pan-y;
-        touch-action: pan-y;
+    touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -453,11 +452,7 @@ li {
 .slick-slider .slick-track,
 .slick-slider .slick-list
 {
-    -webkit-transform: translate3d(0, 0, 0);
-       -moz-transform: translate3d(0, 0, 0);
-        -ms-transform: translate3d(0, 0, 0);
-         -o-transform: translate3d(0, 0, 0);
-            transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
 }
 
 .slick-track
@@ -998,6 +993,19 @@ line-height: 20px;
 padding: 16px 0;
 margin-bottom: 16px;
 }
+.form input::-moz-placeholder, .form textarea::-moz-placeholder {
+ 
+  font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 12px;
+line-height: 20px;
+
+letter-spacing: 3.70909px;
+
+color: #B8B8B8;
+text-transform: uppercase;
+}
 .form input::placeholder,
 .form textarea::placeholder {
  
@@ -1241,6 +1249,7 @@ justify-content: space-around;
 align-items: center;  
 }  
 .team__items {
+  -moz-column-gap: 20px;
   column-gap: 20px;
 } 
 .slider-blog__item-title {
@@ -1317,7 +1326,9 @@ font-size: 8px;
 line-height: 8px;
 }
 .portfolio__content {
+  -moz-column-count: 2;
   column-count: 2;
+  -moz-column-gap: 12px;
   column-gap: 12px;
 }
 .pricing {
@@ -1405,7 +1416,9 @@ align-items: center;
   padding: 10px; 
 }   
  .portfolio__content {
+  -moz-column-count: 1;
   column-count: 1;
+  -moz-column-gap: 2px;
   column-gap: 2px;
 } 
 .portfolio__numbers-item  {

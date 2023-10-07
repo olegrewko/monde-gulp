@@ -38,7 +38,7 @@ var paths = {
 
  function html() {
    return gulp.src('docs/*.html')
-    .pipe(htmlmin({ collapseWhitespace: true }))
+    // .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest('dist'))
     .pipe(browserSync.stream());
 }
@@ -62,17 +62,21 @@ function img() {
 )
 		.pipe(gulp.dest('dist/img'))
 }
+
+
+
+
 function styles() {
   return gulp.src('docs/css/**/*.css')
     .pipe(autoprefixer({
 			cascade: false
 		}))
-    .pipe(cleanCSS())
+    // .pipe(cleanCSS())
     
-    .pipe(rename({
-      basename: 'main',
-      suffix: '.min'
-    }))
+    // .pipe(rename({
+    //   basename: 'main',
+    //    suffix: '.min'
+    // }))
     .pipe(gulp.dest(paths.css.dest))
     .pipe(browserSync.stream());
 }
@@ -114,5 +118,5 @@ exports.styles = styles;
 exports.scripts = scripts;
 exports.watch = watch;
 exports.build = build;
-exports.default = build;
+exports.default = gulp.series(clean, html, gulp.parallel(copyfolder, styles, scripts, img), watch);
 exports.img = img;
